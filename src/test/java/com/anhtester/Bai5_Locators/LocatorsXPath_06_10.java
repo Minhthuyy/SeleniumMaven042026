@@ -33,7 +33,27 @@ public class LocatorsXPath_06_10 {
         driver.findElement(By.id("website")).sendKeys("https://anhtester.com");
         driver.findElement(By.xpath("//button[@data-id='groups_in[]']")).click();
         Thread.sleep(1000);
-        driver.findElement(By.xpath("//button[@data-id='groups_in[]']/following-sibling::div/input")).sendKeys("//span[normalize-space()='ctp group']");
+        driver.findElement(By.xpath("//button[@data-id='groups_in[]']/following-sibling::div//input")).sendKeys("VIP");
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//span[normalize-space()='VIP']")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//button[@data-id='groups_in[]']")).click();
+        driver.findElement(By.xpath("//textarea[@id='address']")).sendKeys("123 Nguyen Van Linh");
+        driver.findElement(By.xpath("//input[@id='city']")).sendKeys("Hue");
+        driver.findElement(By.xpath("//input[@id='state']")).sendKeys("Hue");
+        driver.findElement(By.id("zip")).sendKeys("530000");
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//button[@data-id='country']")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//button[@data-id='country']/following-sibling::div//input")).sendKeys("Vietnam");
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//span[normalize-space()='Vietnam']")).click();
+        Thread.sleep(3000);
+//        driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
+//        Thread.sleep(3000);
+
+        driver.quit();
+
 
     }
 }
