@@ -1,9 +1,6 @@
 package com.anhtester.Bai6_WebElement;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
@@ -30,12 +27,22 @@ public class DemoWebElement03 {
         driver.findElement(By.xpath("//input[@type='password']")).sendKeys("123456");
         Thread.sleep(2000);
 
+        //getCSSValue: lấy giá trị của thuộc tính CSS của một phần tử trên trang web
         WebElement loginButton = driver.findElement(By.xpath("//button[normalize-space()='Login']"));
         System.out.println(loginButton.getCssValue("background-color"));
         System.out.println(loginButton.getCssValue("font-size"));
         System.out.println(loginButton.getCssValue("font-family"));
 
-        driver.findElement(By.xpath("//input[@type='password']")).submit();
+        Dimension dimensions = loginButton.getSize();
+        System.out.println("Height: " + dimensions.getHeight() + " Width: " + dimensions.getWidth());
+
+
+        Point point = loginButton.getLocation();
+        System.out.println("X: " + point.getX() + " Y: " + point.getY());
+
+//        driver.findElement(By.xpath("//input[@type='password']")).submit();
+        driver.findElement(By.xpath("//input[@type='password']")).sendKeys(Keys.ENTER);
+        //driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
         Thread.sleep(2000);
 
 
@@ -52,6 +59,17 @@ public class DemoWebElement03 {
 
         driver.findElement(By.xpath("//table[@id='clients']/tbody//tr[1]/td[3]/a")).click();
         Thread.sleep(2000);
+
+
+
+        //getAttribute: lấy giá trị của thuộc tính HTML của một phần tử trên trang web
+        System.out.println(driver.findElement(By.xpath("//input[@id='company']")).getAttribute("value"));
+        System.out.println(driver.findElement(By.xpath("//input[@id='vat']")).getAttribute("value"));
+        System.out.println(driver.findElement(By.xpath("//input[@id='phonenumber']")).getAttribute("value"));
+        System.out.println(driver.findElement(By.xpath("//input[@id='website']")).getAttribute("value"));
+        System.out.println(driver.findElement(By.xpath("//button[@data-id='groups_in[]']")).getText());
+        System.out.println(driver.findElement(By.xpath("//button[@data-id='groups_in[]']")).getText());
+        System.out.println(driver.findElement(By.xpath("//textarea[@id='address']")).getText());
 
 
 
