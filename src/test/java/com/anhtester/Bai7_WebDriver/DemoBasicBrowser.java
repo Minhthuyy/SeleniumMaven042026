@@ -39,7 +39,9 @@ public class DemoBasicBrowser {
 
 // Get the current page HTML source
         String html = driver.getPageSource();
-        System.out.println("Page source length: " + html.length());
+        System.out.println("Page HTML: " + html);
+
+        System.out.println(html.contains("<button  type=\"button\""));
 
         driver.quit();
     }

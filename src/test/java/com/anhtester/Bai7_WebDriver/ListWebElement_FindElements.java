@@ -32,10 +32,12 @@ public class ListWebElement_FindElements {
                     System.out.println(menu.getText());
                 }
 
-//                //Click xo menu Sales de text xuat hien, sau do moi get List menu
-//                driver.findElement(By.xpath("//span[normalize-space()='Sales' and @class")).click();
+                //Click xo menu Sales de text xuat hien, sau do moi get List menu
+                driver.findElement(By.xpath("//span[normalize-space()='Sales' and @class='menu-text']")).click();
+                        Thread.sleep(2000);
 
-            List<WebElement> listSubMenuSales = driver.findElements(By.xpath("//span[normalize-space()='Sales']/parent::a/following-sibling::ul//li/a"));
+            //Get sub menu of Sales menu item
+            List<WebElement> listSubMenuSales = driver.findElements(By.xpath("(//span[normalize-space()='Sales' and @class='menu-text']/parent::a)/following-sibling::ul//li/a"));
                 for (WebElement subMenu : listSubMenuSales) {
                     System.out.println(subMenu.getText());
                 }
