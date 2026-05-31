@@ -28,6 +28,7 @@ public class HandleDropdownDynamic {
         //Cách ENTER dùng cho trường hợp chỉ hiển thị 1 giá trị lựa chọn
         //Actions action = new Actions(driver);
         //action.sendKeys(Keys.ENTER).perform();
+
         driver.quit();
     }
 }
