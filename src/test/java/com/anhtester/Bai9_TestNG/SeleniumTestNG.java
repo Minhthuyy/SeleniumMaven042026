@@ -1,12 +1,10 @@
 package com.anhtester.Bai9_TestNG;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -30,11 +28,14 @@ public class SeleniumTestNG {
     }
 
     @Test
-    public void testGoogleSearch() throws InterruptedException {
-        driver.get("https://www.google.com/");
-        driver.findElement(By.xpath("//textarea[@name='q']")).sendKeys("anhtester", Keys.ENTER);
+    public void testLoginCRM() throws InterruptedException {
+        driver.get("https://crm.anhtester.com/admin/authentication");
         Thread.sleep(2000);
-        driver.findElement(By.xpath("//h3[normalize-space()='Anh Tester Automation Testing']")).click();
+        driver.findElement(By.id("email")).sendKeys("admin@example.com");
+        Thread.sleep(2000);
+        driver.findElement(By.id("password")).sendKeys("123456");
+        Thread.sleep(2000);
+        driver.findElement(By.tagName("button")).click();
         Thread.sleep(2000);
     }
 
