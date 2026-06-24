@@ -56,6 +56,7 @@
                 <configuration>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/Suites/SuiteLoginTest.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/Suites/SuiteCustomerTest.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
 

@@ -1,9 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Regression Suite" parallel="tests" thread-count="2">
-    <test name="Bai 8 - Checkbox, Radio, Dropdown">
-        <packages>
-            <package name="com.anhtester.Bai8_Checkbox_Radio_Dropdown" />
-        </packages>
+
+    <test name="Bai 9 - Demo TestNG">
+        <classes>
+            <class name="com.anhtester.Bai9_TestNG.DemoTestNG" />
+        </classes>
     </test>
 </suite>
