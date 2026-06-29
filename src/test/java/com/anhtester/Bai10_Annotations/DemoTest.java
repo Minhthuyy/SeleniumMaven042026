@@ -5,8 +5,9 @@ import org.testng.annotations.Test;
 public class DemoTest {
 
     @Test(priority = 1, description = "Test Login CRM success")
-    public void testLoginCRM() {
+    public void testLoginCRM() throws Exception {
         System.out.println("Đây là test case login CRM");
+        throw new Exception("Test case login CRM failed");
     }
 
     @Test(priority = 2, description = "Test Logout CRM success")
@@ -18,4 +19,10 @@ public class DemoTest {
     public void testLoginFailWithInvalidEmal() {
         System.out.println("Đây là test case login thất bại với email không hợp lệ");
     }
+
+    @Test(dependsOnMethods = {"testLoginCRM"}, alwaysRun = true, description = "Test case thêm mới khách hàng")
+    public void testAddNewCustomer() {
+        System.out.println("Đây là test case thêm mới khách hàng");
+    }
+
 }
