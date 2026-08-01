@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression suite" verbose="1">
+
+    <test name="Login Test with Chrome">
+        <classes>
+            <class name="com.anhtester.Bai10_Annotations.DemoAutomation.LoginTest2"/>
+            <class name="com.anhtester.Bai10_Annotations.DemoAutomation.LoginTest3"/>
+         </classes>
+    </test>
+</suite>

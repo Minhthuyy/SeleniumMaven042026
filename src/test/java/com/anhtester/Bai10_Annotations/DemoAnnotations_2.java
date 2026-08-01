@@ -26,6 +26,7 @@ public class DemoAnnotations_2 {
     @BeforeClass
     public void beforeClass() {
         System.out.println("BeforeClass 2: Chạy trước tất cả các test method trong class này");
+        System.out.println("Thực hiện Login trước test case trong class này bằng cách get Cookie từ file config");
     }
 
     @AfterClass
