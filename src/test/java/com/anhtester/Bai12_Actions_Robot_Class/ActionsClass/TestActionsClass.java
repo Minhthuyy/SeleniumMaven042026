@@ -1,0 +1,107 @@
+package com.anhtester.Bai12_Actions_Robot_Class.ActionsClass;
+
+import com.anhtester.common.BaseTest;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
+
+public class TestActionsClass extends BaseTest {
+
+    @Test
+    public void testSendKeys() throws InterruptedException {
+        driver.get("https://cms.anhtester.com");
+
+        driver.findElement(By.xpath("//i[@class='la la-close fs-20']")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//button[normalize-space()='Ok. I Understood']")).click();
+
+        //Input search
+        WebElement element = driver.findElement(By.xpath("//input[@id='search']"));
+
+        //Tao doi tuong cua Actions class va de driver vao
+        Actions action = new Actions(driver);
+
+        //Dung action de goi ham sendKeys dien du lieu. Khong dung sendKeys cua WebElement
+        action.sendKeys(element, "Giỏ quà Tết Ukjgw").perform();
+        Thread.sleep(2000);
+
+        action.sendKeys(Keys.ENTER).perform();
+        Thread.sleep(2000);
+
+        action.click(driver.findElement(By.linkText("Giỏ quà Tết Ukjgw"))).perform();
+        Thread.sleep(2000);
+
+    }
+
+    @Test
+    public void doubleClick() throws InterruptedException {
+        driver.get("https://anhtester.com/");
+        Thread.sleep(2000);
+        WebElement element = driver.findElement(By.xpath("//h2[@class='section__title'])[1]"));
+
+        Actions action = new Actions(driver);
+        action.doubleClick(element).perform();
+        Thread.sleep(2000);
+    }
+
+    @Test
+    public void contextClick() throws InterruptedException {
+        driver.get("https://anhtester.com/");
+        Thread.sleep(2000);
+        WebElement element = driver.findElement(By.xpath("(//h2[@class='section__title'])[1]"));
+
+        Actions action = new Actions(driver);
+
+        action.contextClick(element).perform();
+        Thread.sleep(2000);
+    }
+
+    @Test
+    public void moveToElement() throws InterruptedException {
+        driver.get("https://anhtester.com/");
+        Thread.sleep(2000);
+        WebElement element = driver.findElement(By.xpath("//h2[contains(text(),'Khoá học mới nhất')]"));
+
+        Actions action = new Actions(driver);
+
+        //Move to element(di chuyển tới title Kiến thức cơ bản về Automation Testing)
+        action.moveToElement(element).perform();
+        Thread.sleep(2000);
+    }
+
+    @Test
+    public void inputTextUppercase() throws InterruptedException {
+        driver.get("https://www.google.com/");
+        Thread.sleep(2000);
+        WebElement element = driver.findElement(By.xpath("//textarea[@name='q']"));
+
+        Actions action = new Actions(driver);
+
+        // Đè giữ phím SHIFT và nhập text -> Chữ in hoa
+        action.keyDown(element, Keys.SHIFT).sendKeys("anh tester").build().perform();
+
+        Thread.sleep(2000);
+    }
+
+    @Test
+    public void scrollPageDownAndUp() throws InterruptedException {
+        driver.get("https://anhtester.com/");
+        Actions action = new Actions(driver);
+
+        Thread.sleep(1000);
+        // Scroll down
+        action.keyDown(Keys.END).perform();
+        action.keyUp(Keys.END).perform();
+        Thread.sleep(2000);
+        // Scroll up
+        action.keyDown(Keys.HOME).perform();
+        action.keyUp(Keys.HOME).perform();
+        Thread.sleep(2000);
+    }
+
+
+
+
+}
