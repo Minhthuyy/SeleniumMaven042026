@@ -72,6 +72,27 @@ public class TestActionsClass extends BaseTest {
     }
 
     @Test
+    public void demoDragAndDropWithActionClass() throws InterruptedException {
+        driver.get("https://www.lambdatest.com/selenium-playground/drag-and-drop-demo");
+        Thread.sleep(1000);
+
+        // Bắt element cần kéo
+        WebElement elementFrom1 = driver.findElement(By.xpath("//span[normalize-space()='Draggable 1']"));
+        WebElement elementFrom2 = driver.findElement(By.xpath("//span[normalize-space()='Draggable 2']"));
+        // Bắt element cần thả đến
+        WebElement elementTo = driver.findElement(By.xpath("//div[@id='mydropzone']"));
+
+        Thread.sleep(1000);
+        Actions action = new Actions(driver);
+        // Kéo và thả
+        action.dragAndDrop(elementFrom1, elementTo).perform();
+        Thread.sleep(1000);
+        action.dragAndDrop(elementFrom2, elementTo).perform();
+
+        Thread.sleep(2000);
+    }
+
+    @Test
     public void inputTextUppercase() throws InterruptedException {
         driver.get("https://www.google.com/");
         Thread.sleep(2000);
@@ -100,6 +121,7 @@ public class TestActionsClass extends BaseTest {
         action.keyUp(Keys.HOME).perform();
         Thread.sleep(2000);
     }
+
 
 
 
