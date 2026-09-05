@@ -122,6 +122,43 @@ public class TestActionsClass extends BaseTest {
         Thread.sleep(2000);
     }
 
+    @Test
+    public void copyAndPaste() throws InterruptedException {
+        driver.get("https://anhtester.com/courses");
+        Thread.sleep(2000);
+
+        WebElement inputCourseElement = driver.findElement(By.xpath("//input[@placeholder='Find a course']"));
+        WebElement clickSearch = driver.findElement(By.xpath("(//i[@class='isax isax-search-normal-1'])[1]"));
+
+
+        Actions action = new Actions(driver);
+
+        Thread.sleep(1000);
+        // Nhập text vào ô search course
+        inputCourseElement.sendKeys("Selenium");
+        Thread.sleep(1000);
+        //Ctrl + a để bôi đen
+        action.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).build().perform();
+        Thread.sleep(1000);
+        //Ctrl + c để copy
+        action.keyDown(Keys.CONTROL).sendKeys("x").keyUp(Keys.CONTROL).build().perform();
+        Thread.sleep(1000);
+        //click vào ô Blog search
+        inputCourseElement.click();
+        Thread.sleep(1000);
+        //Ctrl + v để dán
+        action.keyDown(Keys.CONTROL).sendKeys("v").keyUp(Keys.CONTROL).build().perform();
+        Thread.sleep(2000);
+
+        clickSearch.click();
+        Thread.sleep(2000);
+
+    }
+
+
+
+
+
 
 
 
