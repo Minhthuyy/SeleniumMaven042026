@@ -10,11 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class WebUI {
-    public static void clickElement(WebDriver driver, By locator) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].style.border='3px solid red'", driver.findElement(locator));
-        driver.findElement(locator).click();
-    }
+
+    private static int WAIT_TIME = 5;
 
     public static void clickElement(WebDriver driver, By locator, int seconds) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -26,6 +23,19 @@ public class WebUI {
         js.executeScript("arguments[0].style.border='3px solid red'", driver.findElement(locator));
         driver.findElement(locator).click();
     }
+
+    public static void clickElement(WebDriver driver, By locator) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIME));
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+
+
+        js.executeScript("arguments[0].style.border='3px solid red'", driver.findElement(locator));
+        driver.findElement(locator).click();
+    }
+
+
 
     public static void setText(WebDriver driver, By locator, String text) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -61,5 +71,13 @@ public class WebUI {
             return false;
         }
         return true;
+    }
+
+    public static int getWaitTime() {
+        return WAIT_TIME;
+    }
+
+    public static void setWaitTime(int waitTime) {
+        WAIT_TIME = waitTime;
     }
 }
