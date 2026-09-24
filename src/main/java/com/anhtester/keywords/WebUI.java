@@ -55,7 +55,7 @@ public class WebUI {
         try {
             driver.findElement(locator).isDisplayed();
         }
-        catch (NoSuchElementException ex) {
+        catch (Exception ex) {
             return false;
         }
         return true;
@@ -67,7 +67,7 @@ public class WebUI {
             wait.until(ExpectedConditions.presenceOfElementLocated(locator));
             driver.findElement(locator).isDisplayed();
         }
-        catch (NoSuchElementException ex) {
+        catch (Exception ex) {
             return false;
         }
         return true;
