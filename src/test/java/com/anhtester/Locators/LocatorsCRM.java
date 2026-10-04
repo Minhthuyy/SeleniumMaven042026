@@ -2,7 +2,7 @@ package com.anhtester.Locators;
 
 import org.openqa.selenium.By;
 
-public class LocatorCRM {
+public class LocatorsCRM {
     public static By inputEmail = By.id("email");
     public static By inputPassword = By.id("password");
     public static By buttonLogin = By.xpath("//button[normalize-space()='Login']");
